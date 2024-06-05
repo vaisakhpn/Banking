@@ -40,17 +40,17 @@ const AuthForm = ({ type }: { type: string }) => {
         const userData = {
           firstName: data.firstName!,
           lastName: data.lastName!,
-          address1: data.address!,
+          address1: data.address1!,
           city: data.city!,
-          state: data.state,
-          postalCode: data.postalCode,
-          dateOfBirth: data.dateOfBirth,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
           ssn: data.ssn!,
-          email: data.email!,
+          email: data.email,
           password: data.password,
         };
 
-        const newUser = await signUp(data);
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
 
@@ -116,7 +116,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
                   <CustomForm
                     control={form.control}
-                    name="address"
+                    name="address1"
                     label="Address"
                     placeholder="Enter your Address"
                   />
